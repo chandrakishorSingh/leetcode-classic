@@ -1,0 +1,6 @@
+{
+	"name": "LeetCode Classic",
+	"description": "A browser extension to view LeetCode problems in old UI",
+	"version": "1.0.0"
+	"manifest_version": 3
+}
