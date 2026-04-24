@@ -1,6 +1,20 @@
 {
 	"name": "LeetCode Classic",
 	"description": "A browser extension to view LeetCode problems in old UI",
-	"version": "1.0.0"
-	"manifest_version": 3
+	"version": "1.0.0",
+	"manifest_version": 3,
+	"action": {
+		"default_popup": "popup.html",
+		"default_title": "LeetCode Classic"
+	},
+	"background": {
+		"service_worker": "background.js"
+	},
+	"host_permissions": [
+		"https://leetcode.com/*"
+	],
+	"permissions": [
+		"webNavigation",
+		"storage"
+	]
 }
