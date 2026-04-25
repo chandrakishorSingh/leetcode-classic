@@ -13,3 +13,4 @@ A browser extension to view [LeetCode](https://leetcode.com/) problems in old we
     - What if someone manually enters a broken URL ? Add validation.
     - Rapid toggling
 - [ ] Make the default state of extension as enabled(right after user has installed the extension)
+- [ ] Switch the current leetcode problem in new UI if user disables the extension while the current problem was opened in old UI
