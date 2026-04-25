@@ -36,7 +36,6 @@ chrome.webNavigation.onBeforeNavigate.addListener(
             }
 
             if (isEnabled === false) {
-                con
                 return;
             }
 
