@@ -1,4 +1,5 @@
 let count = 0;
+const EXTENSION_ENABLE_STATE_KEY = "EXTENSION_ENABLE_STATE_KEY";
 
 const createClassicUrl = (url) => {
     return url.replace("https://leetcode.com/", "https://leetcode.com/classic/");
@@ -27,17 +28,30 @@ const isUrlMatchingPattern = (url) => {
 
 chrome.webNavigation.onBeforeNavigate.addListener(
     (details) => {
-        count++;
-        console.log("call count: " + count);
-        console.log("Url: " + details.url);
-        console.log("tabId: " + details.tabId);
+        let isEnabled = true;
 
-        const url = details.url;
-        const tabId = details.tabId;
+        chrome.storage.local.get([EXTENSION_ENABLE_STATE_KEY], (result) => {
+            if (result.EXTENSION_ENABLE_STATE_KEY === null || result.EXTENSION_ENABLE_STATE_KEY === undefined || result.EXTENSION_ENABLE_STATE_KEY === false) {
+                isEnabled = false;
+            }
 
-        if (isUrlMatchingPattern(url)) {
-            const newUrl = createClassicUrl(url);
-            chrome.tabs.update(tabId, { url: newUrl });
-        }
+            if (isEnabled === false) {
+                con
+                return;
+            }
+
+            count++;
+            console.log("call count: " + count);
+            console.log("Url: " + details.url);
+            console.log("tabId: " + details.tabId);
+
+            const url = details.url;
+            const tabId = details.tabId;
+
+            if (isUrlMatchingPattern(url)) {
+                const newUrl = createClassicUrl(url);
+                chrome.tabs.update(tabId, { url: newUrl });
+            }
+        });
     }
 );
