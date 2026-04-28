@@ -1,0 +1,26 @@
+{
+    "name": "leetcode-classic",
+    "version": "1.0.0",
+    "description": "A browser extension to view LeetCode problems in old web UI.",
+    "scripts": {
+        "clean": "rimraf dist",
+        "copy-files": "cpy manifest.json dist/chromium/ && cpy src/* dist/chromium/ && cpy src/* dist/firefox/",
+        "update-manifests": "jq --indent 4 '.background.scripts = [.background.service_worker] | del(.background.service_worker)' manifest.json > dist/firefox/manifest.json",
+        "build": "npm run clean && npm run copy-files && npm run update-manifests"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/chandrakishorSingh/leetcode-classic.git"
+    },
+    "author": "Chandrakishor Singh",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/chandrakishorSingh/leetcode-classic/issues"
+    },
+    "homepage": "https://github.com/chandrakishorSingh/leetcode-classic#readme",
+    "devDependencies": {
+        "cpy-cli": "^7.0.0",
+        "node-jq": "^6.3.1",
+        "rimraf": "^6.1.3"
+    }
+}
