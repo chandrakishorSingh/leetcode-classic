@@ -1,11 +1,8 @@
-if (typeof browser === 'undefined') {
-    //var browser = chrome;
+if (browser === undefined) {
+    var browser = chrome;
     console.log("browser is undefined");
     console.log("browser: ", browser);
     console.log("chrome: ", chrome);
-} else {
-    var browser = chrome;
-    console.log("browser is not undefined");
 }
 
 let count = 0;

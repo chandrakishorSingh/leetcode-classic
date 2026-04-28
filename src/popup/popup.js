@@ -1,8 +1,8 @@
-if (typeof browser === 'undefined') {
+if (browser === undefined) {
     var browser = chrome;
     console.log("browser is undefined");
-} else {
-    console.log("browser is not undefined");
+    console.log("browser: ", browser);
+    console.log("chrome: ", chrome);
 }
 
 const EXTENSION_ENABLE_STATE_KEY = "EXTENSION_ENABLE_STATE_KEY";
