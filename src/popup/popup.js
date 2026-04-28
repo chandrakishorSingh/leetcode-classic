@@ -1,10 +1,17 @@
+if (typeof browser === 'undefined') {
+    var browser = chrome;
+    console.log("browser is undefined");
+} else {
+    console.log("browser is not undefined");
+}
+
 const EXTENSION_ENABLE_STATE_KEY = "EXTENSION_ENABLE_STATE_KEY";
 
 console.log("popup.js loaded: " + new Date().toLocaleDateString());
 const toggleButton = document.getElementById("toggle");
 
 const setInitialToggleState = () => {
-    chrome.storage.local.get([EXTENSION_ENABLE_STATE_KEY], (result) => {
+    browser.storage.local.get([EXTENSION_ENABLE_STATE_KEY], (result) => {
         if (result.EXTENSION_ENABLE_STATE_KEY === null || result.EXTENSION_ENABLE_STATE_KEY === undefined) {
             isEnabled = false;
         } else {
@@ -21,7 +28,7 @@ const setInitialToggleState = () => {
 toggleButton.addEventListener("click", () => {
     console.log("toggle button clicked");
 
-    chrome.storage.local.get([EXTENSION_ENABLE_STATE_KEY], (result) => {
+    browser.storage.local.get([EXTENSION_ENABLE_STATE_KEY], (result) => {
         let isEnabled;
         if (result.EXTENSION_ENABLE_STATE_KEY === null || result.EXTENSION_ENABLE_STATE_KEY === undefined) {
             isEnabled = false;
@@ -34,7 +41,7 @@ toggleButton.addEventListener("click", () => {
         isEnabled = !isEnabled;
         toggleButton.innerText = isEnabled ? "Disable Old UI" : "Enable Old UI";
 
-        chrome.storage.local.set({ EXTENSION_ENABLE_STATE_KEY: isEnabled });
+        browser.storage.local.set({ EXTENSION_ENABLE_STATE_KEY: isEnabled });
         console.log(`After toggle click, LeetCode Classic Enabled: ${isEnabled}`);
     });
 

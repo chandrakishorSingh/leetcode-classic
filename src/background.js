@@ -1,3 +1,13 @@
+if (typeof browser === 'undefined') {
+    //var browser = chrome;
+    console.log("browser is undefined");
+    console.log("browser: ", browser);
+    console.log("chrome: ", chrome);
+} else {
+    var browser = chrome;
+    console.log("browser is not undefined");
+}
+
 let count = 0;
 const EXTENSION_ENABLE_STATE_KEY = "EXTENSION_ENABLE_STATE_KEY";
 
@@ -26,11 +36,11 @@ const isUrlMatchingPattern = (url) => {
     return true;
 };
 
-chrome.webNavigation.onBeforeNavigate.addListener(
+browser.webNavigation.onBeforeNavigate.addListener(
     (details) => {
         let isEnabled = true;
 
-        chrome.storage.local.get([EXTENSION_ENABLE_STATE_KEY], (result) => {
+        browser.storage.local.get([EXTENSION_ENABLE_STATE_KEY], (result) => {
             if (result.EXTENSION_ENABLE_STATE_KEY === null || result.EXTENSION_ENABLE_STATE_KEY === undefined || result.EXTENSION_ENABLE_STATE_KEY === false) {
                 isEnabled = false;
             }
@@ -49,7 +59,7 @@ chrome.webNavigation.onBeforeNavigate.addListener(
 
             if (isUrlMatchingPattern(url)) {
                 const newUrl = createClassicUrl(url);
-                chrome.tabs.update(tabId, { url: newUrl });
+                browser.tabs.update(tabId, { url: newUrl });
             }
         });
     }
