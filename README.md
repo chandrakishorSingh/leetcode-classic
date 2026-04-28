@@ -14,3 +14,5 @@ A browser extension to view [LeetCode](https://leetcode.com/) problems in old we
     - Rapid toggling
 - [ ] Make the default state of extension as enabled(right after user has installed the extension)
 - [ ] Switch the current leetcode problem in new UI if user disables the extension while the current problem was opened in old UI
+- [ ] make the extension to work on firefox as well
+- [ ] Is there is anything you can do to have only one manifest file for both chrome based browsers and firefox ?
