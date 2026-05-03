@@ -6,6 +6,7 @@ if (browser === undefined) {
 }
 
 const EXTENSION_ENABLE_STATE_KEY = "EXTENSION_ENABLE_STATE_KEY";
+let isEnabled;
 
 console.log("popup.js loaded: " + new Date().toLocaleDateString());
 const toggleButton = document.getElementById("toggle");
@@ -29,7 +30,6 @@ toggleButton.addEventListener("click", () => {
     console.log("toggle button clicked");
 
     browser.storage.local.get([EXTENSION_ENABLE_STATE_KEY], (result) => {
-        let isEnabled;
         if (result.EXTENSION_ENABLE_STATE_KEY === null || result.EXTENSION_ENABLE_STATE_KEY === undefined) {
             isEnabled = false;
         } else {
