@@ -4,9 +4,7 @@ A browser extension to view [LeetCode](https://leetcode.com/) problems in old we
 
 ### TODO
 
-- [ ] Generate icon sets
-- [ ] Publish on the chrome web store
-    - Can be published on opera add-ons and edge add-ons later as these browsers can also install extension from chrome web store.
+#### Priority: High
 - [ ] Replace the existing button in popup and implement a toggle switch button in popup like this
 - [ ] Add robust error handling
     - What happens when url has query parameters ?
@@ -14,7 +12,16 @@ A browser extension to view [LeetCode](https://leetcode.com/) problems in old we
     - Rapid toggling
 - [ ] Make the default state of extension as enabled(right after user has installed the extension)
 - [ ] Switch the current leetcode problem in new UI if user disables the extension while the current problem was opened in old UI(and vice-versa)
+
+#### Priority: Medium
+- [ ] Implement light and dark theme
 - [ ] Use typescript instead of javascript for better development experience. Use this type definition package of chrome api extension(https://www.npmjs.com/package/chrome-types)
+
+#### Priority: Low
+- [ ] Can be published on opera add-ons and edge add-ons later as these browsers can also install extension from chrome web store.
+
+### Current Task
+
 - [ ] Update the build script to:
     - add the following config in firefox's manifest.json
     ```
@@ -31,11 +38,12 @@ A browser extension to view [LeetCode](https://leetcode.com/) problems in old we
 	}
     ```
     - make a zip file of all of the extension related files which include the popup/background script/assets/manifest files etc(this zip file is uploaded in the firefox's add-ons website and chrome's web store website)
+	- separate out various components of build script like cleaning, copying, transforming operations for chrome and firefox
 
 ### Current State
 
 - core redirection functionality is working in both firefox and chromium based browsers(chrome/edge/vivaldi/brave/opera)
-- successfully published the extension in firefox add-ons website. it is in review state at present.
+- successfully published the extension in [firefox add-ons website](https://addons.mozilla.org/en-US/firefox/addon/leetcode-classic/) and [chrome web store](https://chromewebstore.google.com/detail/leetcode-classic/ngbnjblikbpjmfcijjoifbhlkiblkcmf)
 
 ### Suggestions by AI
 
