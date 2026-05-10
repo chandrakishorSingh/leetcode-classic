@@ -13,10 +13,10 @@ async function cleanDist() {
 // 2. copy files: working
 async function copyFiles() {
     // 1. copy for chromium build
-    await cpy(['icons/', 'src/**', 'manifest.json'], 'dist/chromium');
+    await cpy(['icons/', 'src/', 'manifest.json'], 'dist/chromium');
     
     // 2. copy for firefox build
-    await cpy(['icons/', 'src/**', 'manifest.json'], 'dist/firefox');
+    await cpy(['icons/', 'src/', 'manifest.json'], 'dist/firefox');
     console.log('Files copied');
 }
 
