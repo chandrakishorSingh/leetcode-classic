@@ -18,7 +18,11 @@ const isUrlMatchingPattern = (url) => {
         return false;
     }
 
-    const regex = /^https:\/\/leetcode\.com\/problems\/([a-zA-Z0-9\-]+)\/?(description\/?)?$/;
+    // regex for matching leetcode problem urls
+    // modify it so that it also match when url has query parameters
+    // example: https://leetcode.com/problems/two-sum/?envType=study-plan&id=algorithm-i
+    
+    const regex = /^https:\/\/leetcode\.com\/problems\/([a-zA-Z0-9\-]+)\/?(description\/?)?(\?.*)?$/;
     const matches = url.match(regex);
 
     if (matches === null || matches === undefined || matches.length === 0) {
