@@ -39,6 +39,22 @@ const isUrlMatchingPattern = (url) => {
 
 browser.webNavigation.onBeforeNavigate.addListener(
     (details) => {
+        if (!details || details.frameId !== 0 || typeof details.tabId !== 'number' || details.tabId < 0) {
+            return;
+        }
+
+        const frameId = details.frameId;
+        // const parentFrameId = details.parentFrameId;
+        // const processId = details.processId;
+        const tabId = details.tabId;
+        // const timeStamp = details.timeStamp;
+        // const url = details.url;
+        console.log("frameId: " + frameId);
+        console.log("tabId: " + tabId);
+
+
+        console.log("onBeforeNavigate called");
+
         let isEnabled = true;
 
         browser.storage.local.get([EXTENSION_ENABLE_STATE_KEY], (result) => {
@@ -63,5 +79,10 @@ browser.webNavigation.onBeforeNavigate.addListener(
                 browser.tabs.update(tabId, { url: newUrl });
             }
         });
+    },
+    {
+        url: [
+            { hostEquals: "leetcode.com", pathPrefix: "/problems/" }
+        ]
     }
 );
