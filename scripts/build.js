@@ -1,6 +1,6 @@
 const { rimraf } = require('rimraf');
 const cpy = require('cpy').default;
-const fs = require('fs');
+const fs = require('node:fs');
 const archiver = require('archiver');
 
 // 1. clean dist folder
@@ -73,8 +73,11 @@ async function createZips() {
     const manifest = JSON.parse(fs.readFileSync('manifest.json', 'utf-8'));
     const version = manifest.version;
 
-    await createZip('dist/chromium', `dist/chromium/leetcode-classic-chromium-v${version}.zip`);
-    await createZip('dist/firefox', `dist/firefox/leetcode-classic-firefox-v${version}.zip`);
+    fs.mkdirSync('dist/firefox/output');
+    fs.mkdirSync('dist/chromium/output');
+
+    await createZip('dist/chromium', `dist/chromium/output/leetcode-classic-chromium-v${version}.zip`);
+    await createZip('dist/firefox', `dist/firefox/output/leetcode-classic-firefox-v${version}.zip`);
 }
 
 async function build() {
