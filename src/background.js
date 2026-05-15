@@ -1,9 +1,4 @@
-if (browser === undefined) {
-    var browser = chrome;
-    console.log("browser is undefined");
-    console.log("browser: ", browser);
-    console.log("chrome: ", chrome);
-}
+const browserApi = typeof browser !== 'undefined' ? browser : chrome;
 
 let count = 0;
 const EXTENSION_ENABLE_STATE_KEY = "EXTENSION_ENABLE_STATE_KEY";
@@ -37,7 +32,7 @@ const isUrlMatchingPattern = (url) => {
     return true;
 };
 
-browser.webNavigation.onBeforeNavigate.addListener(
+browserApi.webNavigation.onBeforeNavigate.addListener(
     (details) => {
         if (!details || details.frameId !== 0 || typeof details.tabId !== 'number' || details.tabId < 0) {
             return;
@@ -57,7 +52,7 @@ browser.webNavigation.onBeforeNavigate.addListener(
 
         let isEnabled = true;
 
-        browser.storage.local.get([EXTENSION_ENABLE_STATE_KEY], (result) => {
+        browserApi.storage.local.get([EXTENSION_ENABLE_STATE_KEY], (result) => {
             if (result.EXTENSION_ENABLE_STATE_KEY === null || result.EXTENSION_ENABLE_STATE_KEY === undefined || result.EXTENSION_ENABLE_STATE_KEY === false) {
                 isEnabled = false;
             }
@@ -76,7 +71,7 @@ browser.webNavigation.onBeforeNavigate.addListener(
 
             if (isUrlMatchingPattern(url)) {
                 const newUrl = createClassicUrl(url);
-                browser.tabs.update(tabId, { url: newUrl });
+                browserApi.tabs.update(tabId, { url: newUrl });
             }
         });
     },
