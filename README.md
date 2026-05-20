@@ -5,8 +5,6 @@ A browser extension to view [LeetCode](https://leetcode.com/) problems in old we
 ### TODO
 
 #### Priority: High
-- Replace the existing button in popup and implement a toggle switch button in popup like this
-- Switch the current leetcode problem in new UI if user disables the extension while the current problem was opened in old UI(and vice-versa)
 - Add robust error handling
     - What happens when url has query parameters ? (already handled)
     - Rapid toggling
@@ -20,7 +18,7 @@ A browser extension to view [LeetCode](https://leetcode.com/) problems in old we
 - Can be published on opera add-ons and edge add-ons later as these browsers can also install extension from chrome web store.
 
 ### Current Task
-- Make the default state of extension as enabled(right after user has installed the extension)
+- Switch the current leetcode problem in new UI if user disables the extension while the current problem was opened in old UI(and vice-versa)
 
 ### Current State
 
@@ -32,10 +30,6 @@ A browser extension to view [LeetCode](https://leetcode.com/) problems in old we
 - No test/lint/sanity checks
     - package.json has build scripts only; no lint/test/type checks.
     - For extension logic, even lightweight smoke checks would improve reliability.
-
-- Build tooling dependency assumption
-    - update-manifests uses jq CLI directly.
-    - node-jq is listed as dependency, but script depends on system-installed jq.
 
 - Async storage read inside navigation callback:
     - In heavy navigation/race scenarios (rapid toggling), behavior can become inconsistent.

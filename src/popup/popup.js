@@ -21,30 +21,27 @@ const isKeyExists = async (key) => {
 
 document.addEventListener('DOMContentLoaded', async () => {
     console.log("popup.js loaded: " + new Date().toLocaleDateString());
-    
-    // get the reference of toggle button
+
+    // get the reference of toggle button and label
     const toggleButton = document.getElementById("toggle");
-
-    // toggle button click listener
-    toggleButton.addEventListener("click", async () => {
-        console.log("toggle button clicked");
-
-        let isEnabled = await isKeyExists(EXTENSION_ENABLE_STATE_KEY);
-        isEnabled = isEnabled === undefined ? true : isEnabled;
-
-        console.log(`Initial state Enabled: ${isEnabled}`);
-
-
-        isEnabled = !isEnabled;
-        toggleButton.innerText = isEnabled ? "Disable Old UI" : "Enable Old UI";
-
-        await setKeyValuePair(EXTENSION_ENABLE_STATE_KEY, isEnabled);
-        console.log(`After toggle click, LeetCode Classic Enabled: ${isEnabled}`);
-    });
-
+    const statusLabel = document.getElementById("status-label");
 
     let isEnabled = await isKeyExists(EXTENSION_ENABLE_STATE_KEY);
     isEnabled = isEnabled === undefined ? true : isEnabled;
 
-    toggleButton.innerText = isEnabled ? "Disable Old UI" : "Enable Old UI";
+    toggleButton.checked = isEnabled;
+    statusLabel.innerText = isEnabled ? "Classic UI is ON" : "Classic UI is OFF"
+
+    // toggle button click listener
+    toggleButton.addEventListener("change", async () => {
+        console.log("toggle button clicked");
+        
+        const isEnabled = toggleButton.checked;
+        console.log(`toggleButton new state ${isEnabled}`);
+
+        statusLabel.innerText = isEnabled ? "Classic UI is ON" : "Classic UI is OFF"
+
+        await setKeyValuePair(EXTENSION_ENABLE_STATE_KEY, isEnabled);
+        console.log(`After toggle click, LeetCode Classic Enabled: ${isEnabled}`);
+    });
 });
