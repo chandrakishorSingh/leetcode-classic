@@ -2,6 +2,9 @@ const browserApi = typeof browser !== 'undefined' ? browser : chrome;
 
 const EXTENSION_ENABLE_STATE_KEY = "EXTENSION_ENABLE_STATE_KEY";
 
+const newUrlRegex = /^https:\/\/leetcode\.com\/problems\/([a-zA-Z0-9\-]+)\/?(description\/?)?(\?.*)?$/;
+const classicUrlRegex = /^https:\/\/leetcode\.com\/classic\/problems\/([a-zA-Z0-9\-]+)\/?(description\/?)?(\?.*)?$/;
+
 // store a given key-value pair
 const setKeyValuePair = async (key, value) => {
     await browserApi.storage.local.set({ [key]: value });
@@ -43,5 +46,16 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         await setKeyValuePair(EXTENSION_ENABLE_STATE_KEY, isEnabled);
         console.log(`After toggle click, LeetCode Classic Enabled: ${isEnabled}`);
+
+        const [tab] = await browserApi.tabs.query({ active: true, currentWindow: true });
+        const url = tab.url;
+
+        if (!isEnabled && classicUrlRegex.test(url)) {
+            const newUrl = url.replace("https://leetcode.com/classic/", "https://leetcode.com/");
+            browserApi.tabs.update(tab.id, {url: newUrl});
+        } else if (isEnabled && newUrlRegex.test(url)) {
+            const classicUrl = url.replace("https://leetcode.com/", "https://leetcode.com/classic/");
+            browserApi.tabs.update(tab.id, {url: classicUrl});
+        }
     });
 });
