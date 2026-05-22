@@ -1,6 +1,6 @@
 {
     "name": "leetcode-classic",
-    "version": "1.0.0",
+    "version": "1.1.1",
     "description": "A browser extension to view LeetCode problems in old web UI.",
     "scripts": {
         "build": "node scripts/build.js"
