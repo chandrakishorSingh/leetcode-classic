@@ -17,3 +17,15 @@
 | Chrome | Edge | Firefox | Opera | Vivaldi | Brave |
 
 </div>
+
+## Screenshot
+
+<img src="assets/screenshots/new-to-classic-screenshot.png" alt="LeetCode Classic - usage screenshot">
+
+## Demo
+
+<video src="assets/demo/demo.mp4" controls></video>
+
+## Limitations
+
+This extension relies on LeetCode's platform continuing to serve the classic UI at the `/classic/` URL path. If LeetCode removes or deprecates this endpoint, the extension will no longer function as intended.
