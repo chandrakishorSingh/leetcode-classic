@@ -1,35 +1,7 @@
-# LeetCode Classic
+<p align="center">
+    <img src="icons/icon-128.png" alt="LeetCode Classic Icon">
+</p>
 
-A browser extension to view [LeetCode](https://leetcode.com/) problems in old web UI.
-
-### TODO
-
-#### Priority: High
-- Add robust error handling
-    - What happens when url has query parameters ? (already handled)
-    - Rapid toggling
-- extract all of the main async operations in separate functions(like reading/writing to storage, navigation listeners etc.)
-
-#### Priority: Medium
-- Implement light and dark theme
-- Use typescript instead of javascript for better development experience. Use this type definition package of chrome api extension(https://www.npmjs.com/package/chrome-types)
-
-#### Priority: Low
-- Can be published on opera add-ons and edge add-ons later as these browsers can also install extension from chrome web store.
-
-### Current Task
-- Switch the current leetcode problem in new UI if user disables the extension while the current problem was opened in old UI(and vice-versa)
-
-### Current State
-
-- core redirection functionality is working in both firefox and chromium based browsers(chrome/edge/vivaldi/brave/opera)
-- successfully published the extension in [firefox add-ons website](https://addons.mozilla.org/en-US/firefox/addon/leetcode-classic/) and [chrome web store](https://chromewebstore.google.com/detail/leetcode-classic/ngbnjblikbpjmfcijjoifbhlkiblkcmf)
-
-### Suggestions by AI
-
-- No test/lint/sanity checks
-    - package.json has build scripts only; no lint/test/type checks.
-    - For extension logic, even lightweight smoke checks would improve reliability.
-
-- Async storage read inside navigation callback:
-    - In heavy navigation/race scenarios (rapid toggling), behavior can become inconsistent.
+<p align="center">
+    A browser extension to view <a href="https://leetcode.com/">LeetCode</a> programming problems in old web UI.
+</p>
