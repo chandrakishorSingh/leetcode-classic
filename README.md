@@ -12,9 +12,9 @@
 
 <div align="center">
 
-| [<img src="assets/browsers/chrome.svg" width="32" height="32">](https://chromewebstore.google.com/detail/leetcode-classic/ngbnjblikbpjmfcijjoifbhlkiblkcmf) | [<img src="assets/browsers/edge.svg" width="32" height="32">](https://chromewebstore.google.com/detail/leetcode-classic/ngbnjblikbpjmfcijjoifbhlkiblkcmf) | [<img src="assets/browsers/firefox.svg" width="32" height="32">](https://addons.mozilla.org/en-US/firefox/addon/leetcode-classic/) | [<img src="assets/browsers/opera.svg" width="32" height="32">](https://chromewebstore.google.com/detail/leetcode-classic/ngbnjblikbpjmfcijjoifbhlkiblkcmf) | [<img src="assets/browsers/vivaldi.svg" width="32" height="32">](https://chromewebstore.google.com/detail/leetcode-classic/ngbnjblikbpjmfcijjoifbhlkiblkcmf) | [<img src="assets/browsers/brave.svg" width="32" height="32">](https://chromewebstore.google.com/detail/leetcode-classic/ngbnjblikbpjmfcijjoifbhlkiblkcmf) |
+| <img src="assets/browsers/chrome.svg" width="32" height="32"> | <img src="assets/browsers/edge.svg" width="32" height="32"> | <img src="assets/browsers/firefox.svg" width="32" height="32"> | <img src="assets/browsers/opera.svg" width="32" height="32"> | <img src="assets/browsers/vivaldi.svg" width="32" height="32"> | <img src="assets/browsers/brave.svg" width="32" height="32"> |
 | :-: | :-: | :-: | :-: | :-: | :-: |
-| Chrome | Edge | Firefox | Opera | Vivaldi | Brave |
+| [Chrome](https://chromewebstore.google.com/detail/leetcode-classic/ngbnjblikbpjmfcijjoifbhlkiblkcmf) | [Edge](https://chromewebstore.google.com/detail/leetcode-classic/ngbnjblikbpjmfcijjoifbhlkiblkcmf) | [Firefox](https://addons.mozilla.org/en-US/firefox/addon/leetcode-classic/) | [Opera](https://chromewebstore.google.com/detail/leetcode-classic/ngbnjblikbpjmfcijjoifbhlkiblkcmf) | [Vivaldi](https://chromewebstore.google.com/detail/leetcode-classic/ngbnjblikbpjmfcijjoifbhlkiblkcmf) | [Brave](https://chromewebstore.google.com/detail/leetcode-classic/ngbnjblikbpjmfcijjoifbhlkiblkcmf) |
 
 </div>
 
@@ -24,8 +24,17 @@
 
 ## Demo
 
-<video src="assets/demo/demo.mp4" controls></video>
+https://github.com/user-attachments/assets/4ea94a55-6570-496a-97e3-73504ae19d43
 
 ## Limitations
+
+Only following sections of LeetCode can be viewed in classic UI:
+- **Description**
+- **Hints**
+- **Submissions**
+
+Below sections are not supported in classic UI:
+- **Discuss**
+- **Solutions**
 
 This extension relies on LeetCode's platform continuing to serve the classic UI at the `/classic/` URL path. If LeetCode removes or deprecates this endpoint, the extension will no longer function as intended.
